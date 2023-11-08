@@ -9,5 +9,5 @@ test('test', async ({ page }) => {
   await page.getByTestId('login-button').click();
   await page.getByTestId('user-name').click();
 
-  await expect(page.getByTestId('user-name')).toHaveText('Jan Demobankowyx');
+  await expect(page.getByTestId('user-name')).toHaveText('Jan Demobankowyxx');
 });
