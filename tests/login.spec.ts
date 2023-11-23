@@ -23,7 +23,9 @@ test.describe('User login to Demobank', () => {
     await page.getByTestId('login-input').fill('tester');
     await page.getByTestId('password-input').click();
 
-    await expect(page.getByTestId('error-login-id')).toHaveText('identyfikator ma min. 8 znaków');
+    await expect(page.getByTestId('error-login-id')).toHaveText(
+      'identyfikator ma min. 8 znaków',
+    );
   });
 
   test('Login with incorrect credentials', async ({ page }) => {
@@ -32,7 +34,8 @@ test.describe('User login to Demobank', () => {
     await page.getByTestId('password-input').fill('1234');
     await page.getByTestId('password-input').blur();
 
-    await expect(page.getByTestId('error-login-password')).toHaveText('hasło ma min. 8 znaków');
+    await expect(page.getByTestId('error-login-password')).toHaveText(
+      'hasło ma min. 8 znaków',
+    );
   });
-
 });
