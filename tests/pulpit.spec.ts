@@ -6,6 +6,7 @@ test.describe('Pulpit tests', () => {
     const url = 'https://demo-bank.vercel.app/';
     const userId = 'testerLO';
     const userPassword = 'asdfghjk';
+    
     const receiverId = '2';
     const transferAmount = '150';
     const transferTitle = 'pizza';
@@ -22,7 +23,7 @@ test.describe('Pulpit tests', () => {
     await page.locator('#widget_1_transfer_title').fill(transferTitle);
 
     await page.getByRole('button', { name: 'wykonaj' }).click();
-    // await page.getByTestId('close-button').click();
+    //await page.getByTestId('close-button').click();
 
     // Assert
     await expect(page.locator('#show_messages')).toHaveText(
