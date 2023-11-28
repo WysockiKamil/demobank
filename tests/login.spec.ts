@@ -5,7 +5,7 @@ test.describe('User login to Demobank', () => {
     await page.goto('/');
   });
 
-  test.only('Login with correct credentials', async ({ page }) => {
+  test('Login with correct credentials', async ({ page }) => {
     // Arrange
 
     const userId = 'testerLO';
