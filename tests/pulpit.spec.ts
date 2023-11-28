@@ -1,9 +1,10 @@
 import { test, expect } from '@playwright/test';
+import { loginData } from '../test-data/login.data';
 
 test.describe('Pulpit tests', () => {
   test.beforeEach(async ({ page }) => {
-    const userId = 'testerLO';
-    const userPassword = 'asdfghjk';
+    const userId = loginData.userId;
+    const userPassword = loginData.password;
 
     await page.goto('/');
     await page.getByTestId('login-input').fill(userId);
@@ -54,7 +55,7 @@ test.describe('Pulpit tests', () => {
     const topUpAmount = '150';
     const expectedMessage = `Doładowanie wykonane! ${topUpAmount},00PLN na numer ${topUpReceiver}`;
     const initialBalance = await page.locator('#money_value').innerText();
-    const expectedBalance = Number(initialBalance) - Number(topUpAmount)
+    const expectedBalance = Number(initialBalance) - Number(topUpAmount);
 
     //Act
     await page.locator('#widget_1_topup_receiver').selectOption(topUpReceiver);
@@ -63,7 +64,8 @@ test.describe('Pulpit tests', () => {
     await page.getByRole('button', { name: 'doładuj telefon' }).click();
 
     //Assert
-    await expect(page.locator('#show_messages')).toHaveText(`${expectedMessage}`);
+    await expect(page.locator('#show_messages')).toHaveText(
+      `${expectedMessage}`,
+    );
   });
-
 });
